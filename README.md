@@ -34,6 +34,43 @@ The first release focuses on acquisition underwriting. It will capture a propert
 - Decision rationale and assumptions
 - Persistent deal history
 
+## Development
+
+### Prerequisites
+
+- Node.js 20.9 or newer
+- npm
+
+### Local setup
+
+```bash
+git clone <repository-url>
+cd KDENCE-HOUSE
+npm install
+cp .env.example .env.local
+npm run dev
+```
+
+Open `http://localhost:3000` to verify the application starts. The Phase 1 home page intentionally contains only a minimal runtime proof.
+
+### Verification commands
+
+```bash
+npm run lint
+npm run format:check
+npm test
+npm run build
+npm run test:e2e
+```
+
+`npm run test:e2e` starts the Next.js development server automatically and runs the Playwright smoke test against the home page.
+
+### Environment variables
+
+Phase 1 validates `APP_ENV` when provided. Supported values are `development`, `test`, and `production`. It defaults to `development` when omitted. No secret values are required for the application skeleton.
+
+Keep local environment files out of version control. Only `.env.example` belongs in the repository.
+
 ## Development principle
 
 The application must be explainable. Every important decision should preserve the inputs, assumptions, formulas, thresholds, scenario, decision, and rationale that produced it.
@@ -44,4 +81,4 @@ No secrets, credentials, tenant PII, bank information, or confidential property 
 
 ## Status
 
-V1 architecture and implementation are being established. See `AGENTS.md` for engineering rules and `docs/architecture/V1_SPEC.md` for the implementation specification.
+Phase 1 application skeleton is implemented. Business/domain features remain intentionally unimplemented until Phase 2 is authorized. See `AGENTS.md`, `docs/architecture/V1_SPEC.md`, and `docs/architecture/BUILD_PLAN.md` for engineering rules and implementation scope.
